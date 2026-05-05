@@ -1,10 +1,10 @@
-import { Router } from "express";
-import {
-  getAll,
- } from "../controllers/auth.controller.js";
+// import { Router } from "express";
+// import {
+ 
+//  } from "../controllers/auth.controller.js";
 
-const router = Router();
+// const router = Router();
 
-router.get("/", getAll);
+// router.get("/" );
 
-export default router;
+// export default router;
