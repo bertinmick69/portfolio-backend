@@ -9,10 +9,11 @@ import errorHandler from './middlewares/errorHandler.js';
 
 const app = express();
 const PORT = process.env.PORT|| 3000;
+app.use(express.json());
 
 // Middlewares globaux
 app.use(cors({ origin: 'http://localhost:5173' }));
-app.use(express.json());
+
 
 // Exemple avec une route — à dupliquer pour chaque groupe de routes
 // app.use('/api/auth', authRoutes);
