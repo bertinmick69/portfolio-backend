@@ -5,7 +5,7 @@ import cors from 'cors';
 
 // TODO : importer vos routes au fur et à mesure
 
-// import errorHandler from './middlewares/errorHandler.js';
+import errorHandler from './middlewares/errorHandler.js';
 
 const app = express();
 const PORT = process.env.PORT|| 3000;
@@ -20,7 +20,7 @@ app.use(express.json());
 // TODO : brancher les autres routes ici
 
 // Gestionnaire d'erreurs — toujours EN DERNIER
-// app.use(errorHandler);
+app.use(errorHandler);
 
 
 app.listen(PORT, () => {
