@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-// import authRoutes from './routes/auth.routes.js';
+import authRoutes from './routes/auth.routes.js'; 
 
 // TODO : importer vos routes au fur et à mesure
 
@@ -16,7 +16,7 @@ app.use(cors({ origin: 'http://localhost:5173' }));
 
 
 // Exemple avec une route — à dupliquer pour chaque groupe de routes
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 // TODO : brancher les autres routes ici
 
