@@ -29,3 +29,10 @@ export const update = async (req, res, next) => {
 
   res.json(project);
 };
+
+
+export const deleteProject = async (req, res) => {
+  const { id } = req.params;
+  await projectService.deleteProject(id);
+  res.status(204).send();
+};
