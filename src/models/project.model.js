@@ -12,15 +12,17 @@ export const findById = async (id) => {
 };
 
 export const create = async ({ title, description, tech_stack, github_url, demo_url, image_url }) => {
-  const query = 'INSERT INTO projects (title, description, tech_stack, github_url, demo_url, image_url) VALUES (?, ?, ?, ?, ?, ?)';
-  const [result] = await pool.query(query, [title, description, tech_stack, github_url, demo_url, image_url]);
+  const [rows] = await pool.query('INSERT INTO projects (title, description, tech_stack, github_url, demo_url, image_url) VALUES (?, ?, ?, ?, ?, ?)',
+     [title, description, tech_stack, github_url, demo_url, image_url]);
   
-  return await findById(result.insertId);
+  return await findById(rows.insertId);
 };
 
 
-
-
-
-
-
+export const update = async (id, { title, description, tech_stack, github_url, demo_url, image_url }) => {
+  await pool.query(
+    'UPDATE projects SET title = ?, description = ?, tech_stack = ?, github_url = ?, demo_url = ?, image_url = ? WHERE id = ?', 
+    [title, description, tech_stack, github_url, demo_url, image_url, id]
+  );
+  return await findById(id);
+};
