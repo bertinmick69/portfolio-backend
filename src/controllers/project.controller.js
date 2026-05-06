@@ -20,3 +20,12 @@ export const create = async (req, res) => {
 
   res.status(201).json(project);
 };
+
+export const update = async (req, res, next) => {
+  const { id } = req.params;
+  const data = req.body;
+
+  const project = await projectService.update(id, data);
+
+  res.json(project);
+};
