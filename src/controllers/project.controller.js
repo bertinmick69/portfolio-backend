@@ -1,9 +1,6 @@
-import {getAllProjects} from '../services/project.service.js';
+import * as projectService from '../services/project.service.js';
 
-export const fetchAllProjects = async (req, res, next) => {
-  
-    await getAllProjects(req, res, next);
- 
-    next(error);
-  
-};  
+export const getAllProjects = async (req, res) => {
+  const projects = await projectService.getAllProjects();
+  res.json(projects);
+};
