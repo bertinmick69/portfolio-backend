@@ -21,16 +21,21 @@ export const create = async (data) => {
   return project;
 };
 
-
-
 export const update = async (id, data) => {
 
   const updatedProject = await projectModel.findById(id);
   if (!updatedProject) {
     throw new AppError('Erreur lors de la mise à jour du projet', 404);
   }
-
   const updated = await projectModel.update(id, data);
   
   return updated;
 };
+
+export const deleteProject = async (id) => {
+  const project = await projectModel.remove(id);
+  if (!project) {
+    throw new AppError('Projet déjà supprimé', 404);
+  }
+  return true;
+};  
