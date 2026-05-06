@@ -13,7 +13,7 @@ export const getProjectById = async (id) => {
   return project;
 }; 
 
-export const createProject = async (data) => {
+export const create = async (data) => {
   const project = await projectModel.create(data);
   if (!project) {
     throw new AppError('Erreur lors de la création du projet', 500);
