@@ -1,5 +1,5 @@
 import { body, param } from "express-validator";
-export const validateContactbody = [
+export const validateContact = [
 body("name")
 .notEmpty().withMessage("Le nom est requis")
 .isLength({ min: 2 }).withMessage("Le nom doit faire au moins 2 caractères")
